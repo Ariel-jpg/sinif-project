@@ -5,7 +5,7 @@ import rootReducer from "./Common/RootReducers";
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import monitorReducersEnhancer from './enhancers/monitorReducers';
+import monitorReducersEnhancer from './Enhancers/monitorReducers';
 
 export default function configureStore(preloadedState) {
     const middlewareEnhancer = applyMiddleware(...rootMiddleware);

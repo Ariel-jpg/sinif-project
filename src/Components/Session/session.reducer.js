@@ -1,17 +1,21 @@
-const { LOGIN_REQUEST, LOGIN_RESPONSE, LOGIN_RESPONSE_ERROR } = require("./session.actions")
+import { LOGIN_REQUEST, LOGIN_RESPONSE, LOGIN_RESPONSE_ERROR } from "./session.actions";
 
 const initalState = {
-    user: undefined
+    isLogged: localStorage.getItem("isLogged") || false,
+    ui: {
+        loginError: false,
+        registryError: false
+    }
 }
 
 const sessionReducer = (state = initalState, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
-            return { ...state, };
+            return { ...state };
         case LOGIN_RESPONSE:
-            return { ...state, };
+            return { ...state, isLogged: true };
         case LOGIN_RESPONSE_ERROR:
-            return { ...state, };
+            return { ...state, ui: { ...state.ui, registryError: true } };
 
         default: return state;
     }
