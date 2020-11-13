@@ -1,42 +1,45 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
-import Login from './Session/Containers/Login';
+import SessionWrapper from './Session/Components/SessionWrapperScreen';
+import Home from './Home/Containers/Home';
 
 const PrivateRoute = ({ component, userLogged, props }) =>
-  userLogged ? <Route {...props} children={component} /> : <Redirect to="/unauthorized" />
+  userLogged ? <Route {...props} children={component} /> : <Redirect to="/" />
 
-function App({ isLogged }) {
-  return (
-    <Router>
-      <Switch>
-        <Route
-          exact path="/"
-          children={props => <Login {...props} />}
-        />
-        <Route
-          exact path="/join"
-          children={props => <Login {...props} />}
-        />
-        {/* <PrivateRoute
-          userLogged={true}
-          exact path="/priv"
-          component={}
-        /> */}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-        <Route
-          exact path="/unauthorized"
-          children={<p>Sin autorización</p>}
-        />
-        <Route
-          exact path="*"
-          children={<p>A casa pete</p>}
-        />
-      </Switch>
-    </Router>
-  );
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route
+            exact path="/" // Login and registry
+            children={props => this.props.isLogged ? <Redirect to="/home" /> : <SessionWrapper {...props} />}
+          />
+          <PrivateRoute
+            userLogged={this.props.isLogged}
+            exact path="/home" // Principal page
+            component={<Home />}
+          />
+
+          <Route
+            exact path="/unauthorized"
+            children={<p>Sin autorización</p>}
+          />
+          <Route
+            exact path="*"
+            children={<p>A casa</p>}
+          />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
-const mapStateToProps = state => ({ isLogged: state.sessionReducer.isLogged })
+const mapStateToProps = state => ({ isLogged: state.userReducer.isLogged })
 
 export default connect(mapStateToProps, null)(App)

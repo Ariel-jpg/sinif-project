@@ -55,21 +55,28 @@ export const darkTheme = {
 }
 
 export const lightTheme = {
-    primaryColor: "#D67543",
-    secondaryColor: "#5E3D2C",
-    tertiaryColor: "#33221A",
+    primaryColor: "#595656",
+    secondaryColor: "#fff",
+    tertiaryColor: "#000",
 
     colorThemeName: "lightTheme"
+}
+
+export const alternativeSecondTheme = {
+    primaryColor: "#FF6458",
+    secondaryColor: "#3C0400",
+    tertiaryColor: "#1D0200",
+
+    colorThemeName: "secondTheme"
 }
 
 export default {
     firstTheme,
     secondTheme,
     thirdTheme,
-    darkTheme,
-    lightTheme,
-    thirdTheme,
     fourthTheme,
     fifthTheme,
-    sixthTheme
+    sixthTheme,
+    lightTheme,
+    darkTheme
 }

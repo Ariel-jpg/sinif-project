@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
-import themes from '../../Constants/Themes';
 import { sessionActions } from '../session.actions';
 import LoginScreen from "../Components/LoginScreen";
 
 const mapStateToProps = state => ({
-    
+    loginPending: state.sessionReducer.ui.loginPending
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,43 +1,4 @@
-.LoginScreenStyle {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: hidden;
-}
-
-.LoginScreenStyle > section:first-child {
-  flex: 0.3;
-  background-size: cover;
-  background-position: center;
-  background-image: url(../../../Assets/loginBackground.jpg);
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-}
-
-.H3LoginStyle {
-  z-index: 10;
-  align-self: flex-start;
-  padding-left: 5%;
-  padding-right: 5%;
-  width: 100%;
-  cursor: pointer;
-  box-decoration-break: none;
-}
-
-.H3LoginStyle:hover {
-  background-color: none;
-}
-
-.H3LoginStyle > p {
-  white-space: normal;
-  font-weight: lighter;
-  margin-top: 3%;
-  animation: ghostText 1s ease-in-out;
-}
-
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle {
+section.LoginScreenSecondSectionStyle {
   flex: 0.7;
   transition: 1s;
   display: flex;
@@ -47,58 +8,63 @@
   justify-content: space-around;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > h1 {
+section.LoginScreenSecondSectionStyle > h1 {
   display: flex;
   align-items: center;
   flex: 0.2;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > form {
+section.LoginScreenSecondSectionStyle > form {
   display: flex;
   width: 90%;
+  animation: ghostText 1s;
   flex: 0.4;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > form > dl {
+section.LoginScreenSecondSectionStyle > form > dl {
   flex: 1;
   display: flex;
   flex-direction: column;
   text-align: center;
+  animation: ghost 1s;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > form > dl > input {
-  border-bottom: solid 1px white;
+section.LoginScreenSecondSectionStyle > form > dl > input {
+  border-bottom: solid 1px;
   padding-bottom: 1%;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > form > dl > input::placeholder {
+section.LoginScreenSecondSectionStyle > form > dl > input::placeholder {
   color: var(--placeholder-login-color);
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > form > button {
+section.LoginScreenSecondSectionStyle > form > button {
   flex: 1;
   cursor: pointer;
   text-align: center;
   position: relative;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > aside {
+section.LoginScreenSecondSectionStyle > aside {
   flex: 0.3;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  animation: ghostText 1s;
   align-items: center;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > aside > span {
+section.LoginScreenSecondSectionStyle > aside > span {
   position: relative;
   text-align: center;
+  animation: ghost 1s;
   align-self: center;
 }
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > aside > span::before {
+
+section.LoginScreenSecondSectionStyle > aside > span::before {
   content: "";
   position: absolute;
   width: 1000%;
@@ -108,7 +74,7 @@
   top: 50%;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > aside > span::after {
+section.LoginScreenSecondSectionStyle > aside > span::after {
   content: "";
   position: absolute;
   width: 1000%;
@@ -118,49 +84,31 @@
   top: 50%;
 }
 
-.LoginScreenStyle > section.LoginScreenSecondSectionStyle > aside > h2 {
-  cursor: pointer;
-}
-
 section:first-child.overlay::before {
   background-color: var(--overlay-first-section);
-  opacity: .7;
+  opacity: 0.7;
 }
 
 section.LoginScreenSecondSectionStyle.overlay::before {
-  background-color: var(--overlay-second-section);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 1199px) {
-  .LoginScreenStyle {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    flex-direction: column;
-    height: 250vh;
-    background-color: #111111;
-  }
-
-  .LoginScreenStyle > section.LoginScreenSecondSectionStyle {
+  section.LoginScreenSecondSectionStyle {
     background: transparent;
     min-height: 600px;
     min-width: 100vw;
     flex: 1;
   }
-  
-  .LoginScreenStyle > section.LoginScreenSecondSectionStyle > form {
+  section.LoginScreenSecondSectionStyle > form {
     flex-direction: column;
     flex: 1;
   }
-
-  .LoginScreenStyle > section.LoginScreenSecondSectionStyle > h1 { flex: .1; }
-
-  .LoginScreenStyle > section.LoginScreenSecondSectionStyle > aside { flex: .3; justify-content: space-evenly; }
-
-  .LoginScreenStyle > article {
-    flex: 1.5;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
+  section.LoginScreenSecondSectionStyle > h1 {
+    flex: 0.1;
+  }
+  section.LoginScreenSecondSectionStyle > aside {
+    flex: 0.3;
+    justify-content: space-evenly;
   }
 }

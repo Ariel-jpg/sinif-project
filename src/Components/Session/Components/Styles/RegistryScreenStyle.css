@@ -1,0 +1,129 @@
+section.RegistryScreenStyle {
+  flex: 0.7;
+  transition: 1s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section.RegistryScreenStyle > h1 {
+  display: flex;
+  flex: 0.2;
+  align-items: center;
+}
+
+section.RegistryScreenStyle > form {
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  border-bottom: solid 1px var(--placeholder-registry-color);
+  animation: ghostText 1s;
+  justify-content: space-evenly;
+}
+
+section.RegistryScreenStyle > form > dl {
+  flex: 0.1;
+  display: inherit;
+  justify-content: space-around;
+}
+
+section.RegistryScreenStyle > form > input {
+  width: 40%;
+  align-self: center;
+}
+
+section.RegistryScreenStyle > form > dl > input,
+section.RegistryScreenStyle > form > input {
+  color: var(--placeholder-registry-color);
+  border-bottom: solid 1px var(--placeholder-registry-color);
+  padding-bottom: 1%;
+  text-align: center;
+  animation: ghost 1s;
+}
+
+section.RegistryScreenStyle > form > input {
+  flex: 0.1;
+}
+
+section.RegistryScreenStyle > form > dl > input::placeholder,
+section.RegistryScreenStyle > form > input::placeholder {
+  color: var(--placeholder-registry-color);
+}
+
+section.RegistryScreenStyle > form > div {
+  flex: 0.3;
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+  color: var(--placeholder-registry-color);
+}
+
+section.RegistryScreenStyle > form > div > h3 {
+  font-weight: normal;
+}
+
+section.RegistryScreenStyle > form > div > aside {
+  display: inherit;
+  justify-content: space-evenly;
+  flex: 1;
+}
+
+section.RegistryScreenStyle > form > div > aside > button {
+  border: solid 1px;
+  flex: 1;
+  margin: 7% 5% 7% 5%;
+  cursor: pointer;
+  animation: ghost 1s;
+}
+
+section.RegistryScreenStyle > form > button {
+  align-self: center;
+  border: none;
+  animation: ghost 1s;
+}
+
+section.RegistryScreenStyle > button {
+  display: flex;
+  flex: 0.2;
+  align-items: center;
+  animation: ghost 1s;
+}
+
+@media (max-width: 1199px) {
+  section.RegistryScreenStyle {
+    background: transparent;
+    min-height: 600px;
+    min-width: 100vw;
+    flex: 1;
+  }
+  section.RegistryScreenStyle > h1 {
+    flex: 0.15;
+  }
+
+  section.RegistryScreenStyle > form {
+    flex: 0.85;
+  }
+
+  section.RegistryScreenStyle > form > dl > input,
+  section.RegistryScreenStyle > form > input {
+    flex: 0.1;
+    width: 80%;
+    padding-bottom: 1%;
+    align-self: center;
+  }
+
+  section.RegistryScreenStyle > form > div {
+    margin-top: 3%;
+  }
+
+  section.RegistryScreenStyle > form > div > aside > button {
+    padding: 0% 20% 0% 20%;
+    margin: 10% 0% 10% 0%;
+  }
+}

@@ -1,0 +1,58 @@
+.SessionWrapperScreenStyle {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.SessionWrapperScreenStyle > section:first-child {
+  flex: 0.3;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../../../Assets/loginBackground.jpg);
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.H3LoginStyle {
+  z-index: 10;
+  align-self: flex-start;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  cursor: pointer;
+  box-decoration-break: none;
+}
+
+.H3LoginStyle:hover {
+  background-color: none;
+}
+
+.H3LoginStyle > p {
+  white-space: normal;
+  font-weight: lighter;
+  margin-top: 3%;
+  animation: ghostText 1s ease-in-out;
+}
+
+@media (max-width: 1199px) {
+  .SessionWrapperScreenStyle > section:first-child { background: inherit; }
+
+  .SessionWrapperScreenStyle {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-direction: column;
+    height: 250vh;
+    background-color: #111111;
+  }
+
+  .SessionWrapperScreenStyle > article {
+    flex: 1.5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
