@@ -18,11 +18,23 @@ export const SinifClassMessageComponent = ({ message, onClick, style }) => {
         onClick={onClick}
         className="SinifClassMessageComponentStyle"
     >
-        <h4 style={{ marginBottom: message.description && 10}}>{message.title}</h4>
+        <h4 style={{ marginBottom: message.description && 10 }}>{message.title}</h4>
         {message.description && <p>{message.description}</p>}
+    </div>
+}
+
+export const SinifCommentMessageComponent = ({ comment, style }) => {
+    return <div
+        style={style}
+        tabIndex="0"
+        className="SinifClassMessageComponentStyle Comment"
+    >
+        {<p>{comment}</p>}
     </div>
 }
 
 export const AddClassButton = ({ onClick }) => <button className="HomeButtonStyle" onClick={onClick}>
     <RiPlayListAddFill />
 </button>
+
+export const LoadMessages = ({ onClick, label }) => <button className="LoadMessagesButtonStyle" onClick={onClick} children={label} />

@@ -160,7 +160,6 @@ button.HomeButtonStyle:focus {
 .HomeScreenStyle > section > section {
   flex: 0.35;
   display: flex;
-  background-color: gray;
 }
 
 .HomeScreenStyle > section > section.ClassMessagesSectionStyle {
@@ -169,7 +168,7 @@ button.HomeButtonStyle:focus {
   display: inherit;
   flex-flow: column-reverse;
   background-color: transparent;
-  padding: 0 1% 1% 1%;
+  padding: 0 1% 15px 1%;
   overflow-y: scroll;
 }
 
@@ -231,21 +230,6 @@ button.HomeButtonStyle:focus {
   cursor: pointer;
 }
 
-.HomeScreenStyle > section > section.ClassMessagesSectionStyle > button {
-  border: solid 2px var(--secondary-color);
-  color: var(--primary-color);
-  margin-bottom: 10px;
-  padding: 10px;
-  width: 50%;
-  align-self: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.HomeScreenStyle > section > section.ClassMessagesSectionStyle > button:focus {
-  background-color: var(--secondary-color);
-}
-
 .HomeScreenStyle > section > section.ClassMessagesSectionStyle > aside {
   position: relative;
   height: 50%;
@@ -286,25 +270,6 @@ button.HomeButtonStyle:focus {
   color: var(--primary-color);
 }
 
-.HomeScreenStyle > section > section > div.SinifClassMessageComponentStyle {
-  color: var(--primary-color);
-  text-align: center;
-  background-color: var(--secondary-color);
-  padding: 4% 2% 4% 2%;
-  margin: 0 0 3% 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  flex-direction: column;
-
-  border-radius: 20px;
-}
-
-.HomeScreenStyle > section > section > div.SinifClassMessageComponentStyle > p {
-  font-weight: normal;
-}
-
 .HomeScreenStyle
   > section
   > section.ClassMessagesSectionStyle
@@ -328,4 +293,40 @@ button.HomeButtonStyle:focus {
   > section.ClassMessagesSectionStyle::-webkit-scrollbar-thumb {
   background-color: var(--primary-color);
   border-radius: 10px;
+}
+
+/* General styles for this screen */
+
+div.SinifClassMessageComponentStyle {
+  color: var(--primary-color);
+  text-align: center;
+  background-color: var(--secondary-color);
+  padding: 4% 2% 4% 2%;
+  margin: 0 0 3% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+div.SinifClassMessageComponentStyle > p {
+  font-weight: normal;
+}
+
+button.LoadMessagesButtonStyle {
+  border: solid 2px var(--secondary-color);
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 50%;
+  align-self: center;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+button.LoadMessagesButtonStyle:focus {
+  background-color: var(--secondary-color);
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import io from "socket.io-client";
-import { AddClassButton, SinifClassMessageComponent, SinifSubjectComponent } from "../../Common/Components/HomeComponents"
-import { toastError } from "../../utils/functions";
+import { AddClassButton, LoadMessages, SinifClassMessageComponent, SinifSubjectComponent } from "../../Common/Components/HomeComponents"
+import { SocketListener, toastError } from "../../utils/functions";
 import Themes from "../../Constants/Themes";
 import { post } from '../../utils/http';
 import "./Styles/HomeScreenStyle.css";
@@ -13,35 +12,7 @@ import Dodecahedron from "../../Common/Animations/Dodecahedron";
 
 import { homeServices } from "../home.services";
 import { SinifDialogComponent } from '../../Common/Components/SinifDialogComponent';
-
-const NEW_CLASS_MESSAGE_EVENT = "NEW_CLASS_MESSAGE_EVENT";
-const GET_MESSAGES = "GET_MESSAGES";
-
-function Listener(classCode, setMessages, loadAllClassMessages, loadNewClassMessages, socketRef) {
-    useEffect(() => {
-        socketRef.current = io('http://192.168.0.10:302/', { query: { classCode: classCode } });
-
-        // Listener
-        socketRef.current.on(NEW_CLASS_MESSAGE_EVENT, message => {
-            toastError("Se recibió: ", message);
-
-            const incomingMessage = {
-                title: message.body.title,
-                description: message.body.description,
-                classCode: message.body.classCode
-            };
-
-            loadNewClassMessages(incomingMessage);
-        });
-
-        socketRef.current.emit(GET_MESSAGES, { body: { length: 0 } });
-        socketRef.current.on(GET_MESSAGES, data => {
-            loadAllClassMessages(data);
-        });
-
-        return () => { socketRef.current.disconnect(); };
-    }, [classCode]);
-}
+import CommentsSection from '../Containers/CommentSection';
 
 const HomeScreen = (props) => {
     const cssVars = {
@@ -56,9 +27,19 @@ const HomeScreen = (props) => {
     const [description, setDescription] = useState("");
     const [joinClassCode, setJoinClassCode] = useState("");
     const [joinClassDialog, setJoinClassDialog] = useState(false);
-    const socketRef = useRef();
+    const socketClassMessagesRef = useRef();
+    const NEW_CLASS_MESSAGE_EVENT = "NEW_CLASS_MESSAGE_EVENT";
+    const GET_MESSAGES = "GET_MESSAGES";
 
-    Listener(props.classCode, setMessages, props.loadAllClassMessages, props.loadNewClassMessages, socketRef);
+    SocketListener(props.classCode,
+        NEW_CLASS_MESSAGE_EVENT,
+        GET_MESSAGES,
+        { classCode: props.classCode },
+        setMessages,
+        props.loadAllClassMessages,
+        props.loadNewClassMessages,
+        socketClassMessagesRef
+    );
 
     const onSend = (e, _title, _description) => {
         e.preventDefault();
@@ -66,13 +47,13 @@ const HomeScreen = (props) => {
         if (_title.trim() !== "") {
             toastError("Se envío");
 
-            socketRef.current.emit(NEW_CLASS_MESSAGE_EVENT, {
+            socketClassMessagesRef.current.emit(NEW_CLASS_MESSAGE_EVENT, {
                 body: {
                     classCode: props.classCode,
                     title: _title,
                     description: _description
                 },
-                senderId: socketRef.current.id
+                senderId: socketClassMessagesRef.current.id
             });
 
             setTitle("");
@@ -81,7 +62,7 @@ const HomeScreen = (props) => {
     }
 
     const onChangeRoom = (classCode) => {
-        socketRef.current.disconnect();
+        socketClassMessagesRef.current.disconnect();
         props.changeClass(classCode);
     }
 
@@ -133,11 +114,13 @@ const HomeScreen = (props) => {
                     props.messages[0] ? props.messages.map((message, i) => {
                         if (i === props.messages.length - 1 && props.messages.length < props.totalLength) return <>
                             <SinifClassMessageComponent message={message} />
-                            <button
-                                onClick={() => socketRef.current.emit(GET_MESSAGES, { body: { length: props.messages.length } })}>
-                                Cargar más preguntas
-                            </button>
+                            <LoadMessages
+                                onClick={() => socketClassMessagesRef.current.emit(GET_MESSAGES, { body: { length: props.messages.length } })}
+                                label="Cargar más preguntas"
+                            />
                         </>
+
+
 
                         return <SinifClassMessageComponent message={message} />
                     })
@@ -150,7 +133,7 @@ const HomeScreen = (props) => {
                         </aside>
                 }
             </section>
-            <section>Comments</section>
+            <CommentsSection />
             <section>Others</section>
         </section>
         <SinifDialogComponent

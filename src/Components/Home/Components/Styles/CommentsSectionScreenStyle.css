@@ -1,0 +1,89 @@
+section.CommentsSectionScreenStyle {
+  flex-direction: column;
+}
+
+section.CommentsSectionScreenStyle > h4 {
+  background-color: var(--secondary-color);
+  text-align: center;
+  padding: 1%;
+  color: var(--primary-color);
+  margin: 0;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  border-radius: 20px;
+}
+
+section.CommentsSectionScreenStyle > article {
+  flex: 1;
+  background-color: var(--secondary-color);
+  border-radius: 30px 30px 0 0;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+}
+
+section.CommentsSectionScreenStyle > article > form {
+  display: flex;
+  width: 90%;
+  position: relative;
+  align-self: center;
+}
+
+section.CommentsSectionScreenStyle > article > form > input {
+  color: var(--primary-color);
+  box-shadow: 0 0 10px 1px var(--tertiary-color);
+  border-radius: 30px;
+  width: 100%;
+  padding: 3%;
+}
+
+section.CommentsSectionScreenStyle > article > form > button {
+  position: absolute;
+  right: 0;
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 10px 1px var(--tertiary-color);
+  transform: translateY(-50%);
+  top: 50%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  cursor: pointer;
+  padding: 10px;
+}
+
+section.CommentsSectionScreenStyle > article > form > button > svg {
+  transform: rotate(90deg);
+  color: var(--primary-color);
+}
+
+section.CommentsSectionScreenStyle
+  > article
+  > div.SinifClassMessageComponentStyle.Comment {
+  box-shadow: 0 0 10px 1px var(--tertiary-color);
+  width: 80%;
+  align-self: center;
+  cursor: default;
+  margin-bottom: 30px;
+}
+
+section.CommentsSectionScreenStyle > article > .LoadMessagesButtonStyle {
+  background-color: var(--tertiary-color);
+}
+
+section.CommentsSectionScreenStyle > article > form > input::placeholder {
+  color: var(--primary-color);
+}
+
+section.CommentsSectionScreenStyle > article::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent;
+}
+
+section.CommentsSectionScreenStyle > article::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
