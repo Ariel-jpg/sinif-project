@@ -32,36 +32,28 @@ export const toastDefault = (message, duration = 4000) => toast.dark(message, {
     draggable: true,
     progress: undefined
 });
-export const SocketListener = (classCode,
+export const SocketListener = (
+    roomId,
     onEvent,
     getDataEvent,
     query,
-    setMessages,
-    loadAllClassMessages,
-    loadNewClassMessages,
+    loadAllDataMessages,
+    loadNewData,
     socketComponentRef
 ) => {
     useEffect(() => {
-        socketComponentRef.current = io('http://192.168.0.10:302/', { query });
+        console.log("CAMBIÓ:")
+        socketComponentRef.current = io('http://192.168.0.11:302/', { query });
 
         // Listener
         socketComponentRef.current.on(onEvent, message => {
             toastError("Se recibió: ", message);
-
-            const incomingMessage = {
-                title: message.body.title,
-                description: message.body.description,
-                classCode: message.body.classCode
-            };
-
-            loadNewClassMessages(incomingMessage);
+            loadNewData(message.body);
         });
 
         socketComponentRef.current.emit(getDataEvent, { body: { length: 0 } });
-        socketComponentRef.current.on(getDataEvent, data => {
-            loadAllClassMessages(data);
-        });
+        socketComponentRef.current.on(getDataEvent, data => loadAllDataMessages(data));
 
         return () => { socketComponentRef.current.disconnect(); };
-    }, [classCode]);
+    }, [roomId]);
 }

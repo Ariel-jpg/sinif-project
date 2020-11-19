@@ -4,11 +4,15 @@ import CommentsSectionScreen from '../Components/CommentsSectionScreen';
 import { homeActions } from '../home.actions';
 
 const mapStateToProps = (state) => ({
-    classCode: state.homeReducer.classCode,
-    comments: state.homeReducer.comments
+    questionId: state.homeReducer.questionId,
+    questionTitle: state.homeReducer.questionTitle,
+    comments: state.homeReducer.comments,
+    totalLength: state.homeReducer.totalCommentsLength
 });
 
 const mapDispatchToProps = dispatch => ({
+    loadAllComments: (body) => dispatch(homeActions.loadAllComments(body)),
+    loadNewComment: (comment) => dispatch(homeActions.loadNewComment(comment))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentsSectionScreen);

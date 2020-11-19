@@ -1,18 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { AddClassButton, LoadMessages, SinifClassMessageComponent, SinifSubjectComponent } from "../../Common/Components/HomeComponents"
 import { SocketListener, toastError } from "../../utils/functions";
-import Themes from "../../Constants/Themes";
-import { post } from '../../utils/http';
-import "./Styles/HomeScreenStyle.css";
 import { BiBookBookmark } from 'react-icons/bi';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { RiPlayListAddFill } from 'react-icons/ri';
 import { BsQuestion, BsFillTriangleFill } from 'react-icons/bs';
-import Dodecahedron from "../../Common/Animations/Dodecahedron";
 
-import { homeServices } from "../home.services";
 import { SinifDialogComponent } from '../../Common/Components/SinifDialogComponent';
 import CommentsSection from '../Containers/CommentSection';
+import Dodecahedron from "../../Common/Animations/Dodecahedron";
+
+import Themes from "../../Constants/Themes";
+
+import "./Styles/HomeScreenStyle.css";
 
 const HomeScreen = (props) => {
     const cssVars = {
@@ -35,10 +35,9 @@ const HomeScreen = (props) => {
         NEW_CLASS_MESSAGE_EVENT,
         GET_MESSAGES,
         { classCode: props.classCode },
-        setMessages,
         props.loadAllClassMessages,
         props.loadNewClassMessages,
-        socketClassMessagesRef
+        socketClassMessagesRef,
     );
 
     const onSend = (e, _title, _description) => {
@@ -59,13 +58,7 @@ const HomeScreen = (props) => {
             setTitle("");
             setDescription("");
         } else toastError("El primer campo es obligatorio.", 2000)
-    }
-
-    const onChangeRoom = (classCode) => {
-        socketClassMessagesRef.current.disconnect();
-        props.changeClass(classCode);
-    }
-
+    };
 
     return <main className="HomeScreenStyle" style={cssVars}>
         <nav>
@@ -74,7 +67,7 @@ const HomeScreen = (props) => {
                 {
                     props.lessons[0] ? props.lessons.map(_class => <SinifSubjectComponent
                         _class={_class}
-                        onClick={() => onChangeRoom(_class._id)}
+                        onClick={() => props.changeClass(_class._id)}
                         currentClassCode={props.classCode} />
                     ) : <aside>
                             ¿Tenés un código? <br />
@@ -111,31 +104,32 @@ const HomeScreen = (props) => {
                     <button type="submit"> <BsFillTriangleFill /> </button>
                 </form>
                 {
-                    props.messages[0] ? props.messages.map((message, i) => {
-                        if (i === props.messages.length - 1 && props.messages.length < props.totalLength) return <>
-                            <SinifClassMessageComponent message={message} />
-                            <LoadMessages
-                                onClick={() => socketClassMessagesRef.current.emit(GET_MESSAGES, { body: { length: props.messages.length } })}
-                                label="Cargar más preguntas"
-                            />
-                        </>
+                    props.classCode && props.messages ?
+                        props.messages[0] ? props.messages.map((message, i) => {
+                            if (i === props.messages.length - 1 && props.messages.length < props.totalLength) return <>
+                                <SinifClassMessageComponent onClick={() => props.changeQuestion(message._id)} message={message} />
+                                <LoadMessages
+                                    onClick={() => socketClassMessagesRef.current.emit(GET_MESSAGES, { body: { length: props.messages.length } })}
+                                    label="Cargar más preguntas"
+                                />
+                            </>
 
-
-
-                        return <SinifClassMessageComponent message={message} />
-                    })
-                        : <aside>
-                            <span>
-                                Vaya, parece que nadie preguntó aún. <br />
+                            return <SinifClassMessageComponent message={message} onClick={() => props.changeQuestion(message._id)} />
+                        })
+                            : <aside>
+                                <span>
+                                    Vaya, parece que nadie preguntó aún. <br />
                                 Te dejamos esta animación hasta que alguien tenga alguna duda.
                            </span>
-                            <Dodecahedron />
-                        </aside>
+                                <Dodecahedron />
+                            </aside>
+                        : <aside> <span> Únete a una clase para continuar </span> </aside>
                 }
             </section>
             <CommentsSection />
             <section>Others</section>
         </section>
+
         <SinifDialogComponent
             backgroundColor={Themes[props.colorPage].tertiaryColor}
             color={Themes[props.colorPage].primaryColor}
@@ -152,4 +146,3 @@ const HomeScreen = (props) => {
 }
 
 export default HomeScreen;
-

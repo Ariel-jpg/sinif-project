@@ -8,11 +8,12 @@ const mapStateToProps = (state) => ({
     colorPage: state.userReducer.user.userSettings.colorTheme,
     lessons: state.homeReducer.lessons,
     messages: state.homeReducer.messages,
-    totalLength: state.homeReducer.totalLength
+    totalLength: state.homeReducer.totalQuestionsLength
 });
 
 const mapDispatchToProps = dispatch => ({
     changeClass: (newClassCode) => dispatch(homeActions.changeClass(newClassCode)),
+    changeQuestion: (newQuestionId) => dispatch(homeActions.changeQuestion(newQuestionId)),
     getUserLessons: () => dispatch(homeActions.getUserLessonsRequest()),
     loadAllClassMessages: (messages) => dispatch(homeActions.loadAllClassMessages(messages)),
     loadNewClassMessages: (message) => dispatch(homeActions.loadNewClassMessages(message)),
