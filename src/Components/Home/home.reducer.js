@@ -11,7 +11,7 @@ import {
 
 const initialState = {
     classCode: 0,
-    questionId: 0,
+    questionId: undefined,
     totalQuestionsLength: 0,
     totalCommentsLength: 0,
     lessons: [],
@@ -21,7 +21,7 @@ const initialState = {
 
 const homeReducer = (state = initialState, action) => {
     switch (action.type) {
-        case CHANGE_CLASS: return { ...state, classCode: action.newClassCode }
+        case CHANGE_CLASS: return { ...state, classCode: action.newClassCode, questionId: undefined }
         case CHANGE_QUESTION: return { ...state, questionId: action.newQuestionId }
         case GET_USER_LESSONS_RESPONSE: return { ...state, lessons: action.res.body }
         case LOAD_NEW_CLASS_MESSAGES: return { ...state, messages: [action.message, ...state.messages] }

@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
     classCode: state.homeReducer.classCode,
     colorPage: state.userReducer.user.userSettings.colorTheme,
     lessons: state.homeReducer.lessons,
+    questionId: state.homeReducer.questionId,
     messages: state.homeReducer.messages,
     totalLength: state.homeReducer.totalQuestionsLength
 });

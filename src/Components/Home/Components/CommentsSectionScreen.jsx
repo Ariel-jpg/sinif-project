@@ -26,12 +26,15 @@ const CommentsSectionScreen = (props) => {
     const onSendComment = (e, _comment) => {
         e.preventDefault();
 
-        if (_comment.trim() !== "") socketCommentsRef.current.emit(NEW_COMMENT_EVENT, {
-            body: {
-                message: _comment,
-                questionId: props.questionId
-            }
-        }); else toastError("Debe comentar algo.");
+        if (_comment.trim() !== "") {
+            socketCommentsRef.current.emit(NEW_COMMENT_EVENT, {
+                body: {
+                    message: _comment,
+                    questionId: props.questionId
+                }
+            }); 
+            setComment("");
+        } else toastError("Debe comentar algo.");
     }
 
     return <section className="CommentsSectionScreenStyle">
@@ -45,7 +48,7 @@ const CommentsSectionScreen = (props) => {
                 <button type="submit"> <BsFillTriangleFill /> </button>
             </form>
             {
-                props.questionId && props.comments ?
+                props.questionId ?
                     props.comments[0] ? props.comments.map(({ message }, i) => {
                         if (i === props.comments.length - 1 && props.comments.length < props.totalLength) return <>
                             <SinifCommentMessageComponent comment={message} />

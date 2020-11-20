@@ -5,9 +5,9 @@ import { homeActions } from '../home.actions';
 
 const mapStateToProps = (state) => ({
     questionId: state.homeReducer.questionId,
-    questionTitle: state.homeReducer.questionTitle,
     comments: state.homeReducer.comments,
-    totalLength: state.homeReducer.totalCommentsLength
+    totalLength: state.homeReducer.totalCommentsLength,
+    messages: state.homeReducer.messages,
 });
 
 const mapDispatchToProps = dispatch => ({

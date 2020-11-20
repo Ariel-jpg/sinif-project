@@ -38,6 +38,7 @@ section.CommentsSectionScreenStyle > article > form > input {
   border-radius: 30px;
   width: 100%;
   padding: 3%;
+  padding-right: 11%;
 }
 
 section.CommentsSectionScreenStyle > article > form > button {
@@ -69,9 +70,14 @@ section.CommentsSectionScreenStyle
   align-self: center;
   cursor: default;
   margin-bottom: 30px;
-  word-break: break-all;
+  word-break: break-word;
 }
 
+section.CommentsSectionScreenStyle
+  > article
+  > div.SinifClassMessageComponentStyle.Comment:focus {
+  outline: none;
+}
 section.CommentsSectionScreenStyle > article > aside {
   color: var(--primary-color);
   flex: 1;

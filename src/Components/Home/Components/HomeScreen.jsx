@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { AddClassButton, LoadMessages, SinifClassMessageComponent, SinifSubjectComponent } from "../../Common/Components/HomeComponents"
+import { AddClassButton, LoadMessages, SinifClassComponent, SinifClassMessageComponent } from "../../Common/Components/HomeComponents"
 import { SocketListener, toastError } from "../../utils/functions";
 import { BiBookBookmark } from 'react-icons/bi';
 import { AiOutlineSetting } from 'react-icons/ai';
@@ -65,7 +65,7 @@ const HomeScreen = (props) => {
             <ul>
                 <h1> <BiBookBookmark /> Clases </h1>
                 {
-                    props.lessons[0] ? props.lessons.map(_class => <SinifSubjectComponent
+                    props.lessons[0] ? props.lessons.map(_class => <SinifClassComponent
                         _class={_class}
                         onClick={() => props.changeClass(_class._id)}
                         currentClassCode={props.classCode} />
@@ -107,14 +107,24 @@ const HomeScreen = (props) => {
                     props.classCode && props.messages ?
                         props.messages[0] ? props.messages.map((message, i) => {
                             if (i === props.messages.length - 1 && props.messages.length < props.totalLength) return <>
-                                <SinifClassMessageComponent onClick={() => props.changeQuestion(message._id)} message={message} />
+                                <SinifClassMessageComponent
+                                    style={message._id === props.questionId ? {
+                                        backgroundColor: "var(--tertiary-color)",
+                                        boxShadow: "0 0 15px 1px var(--secondary-color)"
+                                    } : {}}
+                                    onClick={() => props.changeQuestion(message._id)} message={message} />
                                 <LoadMessages
                                     onClick={() => socketClassMessagesRef.current.emit(GET_MESSAGES, { body: { length: props.messages.length } })}
                                     label="Cargar más preguntas"
                                 />
                             </>
 
-                            return <SinifClassMessageComponent message={message} onClick={() => props.changeQuestion(message._id)} />
+                            return <SinifClassMessageComponent
+                                style={message._id === props.questionId ? {
+                                    backgroundColor: "var(--tertiary-color)",
+                                    boxShadow: "0 0 15px 1px var(--secondary-color)"
+                                } : {}}
+                                message={message} onClick={() => props.changeQuestion(message._id)} />
                         })
                             : <aside>
                                 <span>

@@ -1,5 +1,4 @@
 import React from 'react';
-import "./Styles/SinifMessageComponentStyle.css";
 
 export default ({
     title,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { RiPlayListAddFill } from 'react-icons/ri'
 
-export const SinifSubjectComponent = ({ _class, onClick, currentClassCode }) => {
+export const SinifClassComponent = ({ _class, onClick, currentClassCode }) => {
     return <button
         disabled={_class._id === currentClassCode}
         style={{ backgroundColor: _class._id === currentClassCode && "var(--tertiary-color)" }}
@@ -18,7 +18,7 @@ export const SinifClassMessageComponent = ({ message, onClick, style }) => {
         onClick={onClick}
         className="SinifClassMessageComponentStyle"
     >
-        <h4 style={{ marginBottom: message.description && 10 }}>{message.title}</h4>
+        <h4 style={{ marginBottom: message.description && 5 }}>{message.title}</h4>
         {message.description && <p>{message.description}</p>}
     </div>
 }
@@ -26,7 +26,6 @@ export const SinifClassMessageComponent = ({ message, onClick, style }) => {
 export const SinifCommentMessageComponent = ({ comment, style }) => {
     return <div
         style={style}
-        tabIndex="0"
         className="SinifClassMessageComponentStyle Comment"
     >
         {<p>{comment}</p>}
