@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import SessionWrapper from './Session/Components/SessionWrapperScreen';
-import Home from './Home/Containers/Home';
+import HomeScreenWrapper from './Home/Containers/HomeScreenWrapper';
 
 const PrivateRoute = ({ component, userLogged, props }) =>
   userLogged ? <Route {...props} children={component} /> : <Redirect to="/" />
@@ -23,7 +23,7 @@ class App extends React.Component {
           <PrivateRoute
             userLogged={this.props.isLogged}
             exact path="/home" // Principal page
-            component={<Home />}
+            component={<HomeScreenWrapper />}
           />
 
           <Route

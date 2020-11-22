@@ -1,8 +1,4 @@
-.HomeScreenStyle {
-  display: flex;
-}
-
-.HomeScreenStyle > nav {
+.HomeScreenWrapperStyle > nav {
   flex: 0.15;
   min-width: 220px;
   height: 100vh;
@@ -12,7 +8,7 @@
   flex-direction: column;
 }
 
-.HomeScreenStyle > nav > ul {
+.HomeScreenWrapperStyle > nav > ul {
   flex: 0.8;
   margin: 0;
   padding: 0;
@@ -25,7 +21,7 @@
   width: 100%;
 }
 
-.HomeScreenStyle > nav > ul > h1 {
+.HomeScreenWrapperStyle > nav > ul > h1 {
   display: flex;
   color: var(--primary-color);
   width: 50%;
@@ -39,11 +35,11 @@
   justify-content: space-around;
 }
 
-.HomeScreenStyle > nav > ul > h1 > svg {
+.HomeScreenWrapperStyle > nav > ul > h1 > svg {
   color: var(--primary-color);
 }
 
-.HomeScreenStyle > nav > ul > aside {
+.HomeScreenWrapperStyle > nav > ul > aside {
   flex: 1;
   color: var(--primary-color);
   text-align: center;
@@ -53,7 +49,7 @@
   width: 90%;
 }
 
-.HomeScreenStyle > nav > ul > aside > svg {
+.HomeScreenWrapperStyle > nav > ul > aside > svg {
   margin-top: 10px;
   color: var(--primary-color);
   font-size: 220%;
@@ -61,41 +57,18 @@
   align-self: center;
 }
 
-.HomeScreenStyle > nav > ul > button {
-  list-style: none;
-  color: var(--primary-color);
-  box-shadow: 0 0 15px 1px var(--tertiary-color);
-  padding: 5px;
-  margin: 10px 0 10px 0;
-  width: 80%;
-  border-radius: 8px;
-  cursor: pointer;
-
-  font-weight: normal;
-  font-size: 1rem;
-  text-align: center;
-  letter-spacing: 1px;
-  transition: 0.4s;
-}
-
-.HomeScreenStyle > nav > ul > button:hover,
-.HomeScreenStyle > nav > ul > button:focus {
-  background-color: var(--tertiary-color);
-}
-
-.HomeScreenStyle > nav > article {
+.HomeScreenWrapperStyle > nav > article {
   position: relative;
   display: flex;
   flex-direction: column;
   flex: 0.2;
   justify-content: space-around;
-  /* box-shadow: 0 0 30px 1px var(--primary-color); */
   width: 100%;
   min-height: 120px;
   overflow: hidden;
 }
 
-.HomeScreenStyle > nav > article::before {
+.HomeScreenWrapperStyle > nav > article::before {
   content: "";
   position: absolute;
   width: 90%;
@@ -107,7 +80,7 @@
   background-color: var(--primary-color);
 }
 
-.HomeScreenStyle > nav > article > div {
+.HomeScreenWrapperStyle > nav > article > div {
   display: flex;
   justify-content: space-around;
 }
@@ -136,7 +109,7 @@ button.HomeButtonStyle > svg {
   color: var(--primary-color);
 }
 
-.HomeScreenStyle > nav > article > div > button > svg {
+.HomeScreenWrapperStyle > nav > article > div > button > svg {
   transform: rotate(180deg);
 }
 
@@ -145,12 +118,12 @@ button.HomeButtonStyle:focus {
   background-color: var(--tertiary-color);
 }
 
-.HomeScreenStyle > nav > article > div > button:hover > svg,
-.HomeScreenStyle > nav > article > div > button:focus > svg {
+.HomeScreenWrapperStyle > nav > article > div > button:hover > svg,
+.HomeScreenWrapperStyle > nav > article > div > button:focus > svg {
   transform: rotate(0deg);
 }
 
-.HomeScreenStyle > section {
+.HomeScreenWrapperStyle > section {
   height: 100vh;
   flex: 0.85;
   background-color: var(--tertiary-color);
@@ -158,12 +131,7 @@ button.HomeButtonStyle:focus {
   justify-content: space-around;
 }
 
-.HomeScreenStyle > section > section {
-  flex: 0.35;
-  display: flex;
-}
-
-.HomeScreenStyle > section > section.ClassMessagesSectionStyle {
+.HomeScreenWrapperStyle > section > section.ClassMessagesSectionStyle {
   position: relative;
   flex: 0.4;
   display: inherit;
@@ -173,26 +141,30 @@ button.HomeButtonStyle:focus {
   overflow-y: scroll;
 }
 
-.HomeScreenStyle > section > section.ClassMessagesSectionStyle > form {
+.HomeScreenWrapperStyle > section > section.ClassMessagesSectionStyle > form {
   display: flex;
   min-height: 70px;
   max-height: 20%;
 }
 
-.HomeScreenStyle > section > section.ClassMessagesSectionStyle > form > dl {
+.HomeScreenWrapperStyle
+  > section
+  > section.ClassMessagesSectionStyle
+  > form
+  > dl {
   flex: 0.9;
   display: inherit;
   flex-direction: column;
   background-color: transparent;
 }
 
-.HomeScreenStyle
+.HomeScreenWrapperStyle
   > section
   > section.ClassMessagesSectionStyle
   > form
   > dl
   > input,
-.HomeScreenStyle
+.HomeScreenWrapperStyle
   > section
   > section.ClassMessagesSectionStyle
   > form
@@ -211,7 +183,7 @@ button.HomeButtonStyle:focus {
   border: none;
 }
 
-.HomeScreenStyle
+.HomeScreenWrapperStyle
   > section
   > section.ClassMessagesSectionStyle
   > form
@@ -220,7 +192,11 @@ button.HomeButtonStyle:focus {
   margin-bottom: 1%;
 }
 
-.HomeScreenStyle > section > section.ClassMessagesSectionStyle > form > button {
+.HomeScreenWrapperStyle
+  > section
+  > section.ClassMessagesSectionStyle
+  > form
+  > button {
   flex: 0.1;
   border-radius: 10px;
   background-color: var(--secondary-color);
@@ -231,7 +207,7 @@ button.HomeButtonStyle:focus {
   cursor: pointer;
 }
 
-.HomeScreenStyle > section > section.ClassMessagesSectionStyle > aside {
+.HomeScreenWrapperStyle > section > section.ClassMessagesSectionStyle > aside {
   position: relative;
   height: 50%;
   top: -15%;
@@ -245,14 +221,18 @@ button.HomeButtonStyle:focus {
   color: red;
 }
 
-.HomeScreenStyle > section > section.ClassMessagesSectionStyle > aside > span {
+.HomeScreenWrapperStyle
+  > section
+  > section.ClassMessagesSectionStyle
+  > aside
+  > span {
   flex: 0.2;
   vertical-align: bottom;
   text-align: center;
   color: var(--primary-color);
 }
 
-.HomeScreenStyle
+.HomeScreenWrapperStyle
   > section
   > section.ClassMessagesSectionStyle
   > form
@@ -260,7 +240,7 @@ button.HomeButtonStyle:focus {
   border: solid 1px var(--primary-color);
 }
 
-.HomeScreenStyle
+.HomeScreenWrapperStyle
   > section
   > section.ClassMessagesSectionStyle
   > form
@@ -271,7 +251,7 @@ button.HomeButtonStyle:focus {
   color: var(--primary-color);
 }
 
-.HomeScreenStyle
+.HomeScreenWrapperStyle
   > section
   > section.ClassMessagesSectionStyle
   > form
@@ -280,41 +260,20 @@ button.HomeButtonStyle:focus {
   color: var(--primary-color);
 }
 
-.HomeScreenStyle > nav > ul::-webkit-scrollbar,
-.HomeScreenStyle
+.HomeScreenWrapperStyle > nav > ul::-webkit-scrollbar,
+.HomeScreenWrapperStyle
   > section
   > section.ClassMessagesSectionStyle::-webkit-scrollbar {
   width: 3px;
   background-color: transparent;
 }
 
-.HomeScreenStyle > nav > ul::-webkit-scrollbar-thumb,
-.HomeScreenStyle
+.HomeScreenWrapperStyle > nav > ul::-webkit-scrollbar-thumb,
+.HomeScreenWrapperStyle
   > section
   > section.ClassMessagesSectionStyle::-webkit-scrollbar-thumb {
   background-color: var(--primary-color);
   border-radius: 10px;
-}
-
-/* General styles for this screen */
-
-div.SinifClassMessageComponentStyle {
-  color: var(--primary-color);
-  text-align: center;
-  background-color: var(--secondary-color);
-  padding: 4% 2% 4% 2%;
-  margin: 0 0 3% 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  flex-direction: column;
-  border-radius: 20px;
-  border: solid 1px transparent;
-}
-
-div.SinifClassMessageComponentStyle > p {
-  font-weight: normal;
 }
 
 div.SinifClassMessageComponentStyle:focus {
@@ -322,18 +281,19 @@ div.SinifClassMessageComponentStyle:focus {
   border-color: white;
 }
 
-button.LoadMessagesButtonStyle {
-  border: solid 2px var(--secondary-color);
-  color: var(--primary-color);
-  margin-bottom: 10px;
-  padding: 10px;
-  width: 50%;
-  align-self: center;
-  border-radius: 8px;
-  text-align: center;
-  cursor: pointer;
-}
+@media (min-width: 800px) and (max-width: 1299px) {
+  .HomeScreenWrapperStyle > section > section:last-child {
+    visibility: hidden;
+    flex: none;
+    position: absolute;
+  }
 
-button.LoadMessagesButtonStyle:focus {
-  background-color: var(--secondary-color);
+  .HomeScreenWrapperStyle > section > section.ClassMessagesSectionStyle {
+    flex: 1;
+  }
+
+  .HomeScreenWrapperStyle > section > section.CommentsSectionScreenStyle {
+    flex: 1;
+    margin-right: 3%;
+  }
 }

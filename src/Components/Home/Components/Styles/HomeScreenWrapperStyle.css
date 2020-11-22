@@ -1,0 +1,67 @@
+.HomeScreenWrapperStyle {
+  display: flex;
+}
+
+/* General styles for all views */
+
+div.SinifClassMessageComponentStyle {
+  color: var(--primary-color);
+  text-align: center;
+  background-color: var(--secondary-color);
+  padding: 4% 2% 4% 2%;
+  margin: 0 0 3% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  flex-direction: column;
+  border-radius: 20px;
+  border: solid 1px transparent;
+}
+
+div.SinifClassMessageComponentStyle > p {
+  font-weight: normal;
+}
+
+button.LoadMessagesButtonStyle {
+  border: solid 2px var(--secondary-color);
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 50%;
+  align-self: center;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+button.LoadMessagesButtonStyle:focus {
+  background-color: var(--secondary-color);
+}
+
+.SinifClassComponentStyle {
+
+}
+
+.SinifClassComponentStyle {
+  list-style: none;
+  color: var(--primary-color);
+  box-shadow: 0 0 15px 1px var(--tertiary-color);
+  padding: 5px;
+  margin: 10px 0 10px 0;
+  width: 80%;
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-weight: normal;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: 0.4s;
+}
+
+.SinifClassComponentStyle:hover,
+.SinifClassComponentStyle:focus {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: var(--tertiary-color);
+}

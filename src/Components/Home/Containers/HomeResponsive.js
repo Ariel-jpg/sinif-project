@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { userActions } from '../../User/user.actions';
-import HomeScreen from '../Components/HomeScreen';
+import HomeScreenResponsive from '../Components/HomeScreenResponsive';
 import { homeActions } from '../home.actions';
 
 const mapStateToProps = (state) => ({
@@ -17,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
     getUserLessons: () => dispatch(homeActions.getUserLessonsRequest()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreenResponsive);
