@@ -6,6 +6,8 @@ import { homeActions } from '../home.actions';
 const mapStateToProps = (state) => ({
     classCode: state.homeReducer.classCode,
     colorPage: state.userReducer.user.userSettings.colorTheme,
+    messages: state.homeReducer.messages,
+
 })
 
 const mapDispatchToProps = dispatch => ({

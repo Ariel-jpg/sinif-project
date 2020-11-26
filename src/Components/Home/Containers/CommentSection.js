@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { userActions } from '../../User/user.actions';
 import CommentsSectionScreen from '../Components/CommentsSectionScreen';
 import { homeActions } from '../home.actions';
 

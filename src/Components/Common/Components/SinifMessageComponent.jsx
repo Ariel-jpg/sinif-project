@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({
+const SinifMessageComponent = ({
     title,
     description,
     theme,
@@ -17,10 +17,12 @@ export default ({
     ...containerStyle
 }} className="SinifMessageComponentStyle" >
         <h4
-            style={{ color: theme.primaryColor, paddingBottom: description && "5%", fontSize: "1.1rem",  ...titleStyle }}
+            style={{ color: theme.primaryColor, paddingBottom: description && "5%", fontSize: "1.1rem", ...titleStyle }}
             children={title} />
-        { description && <p
+        {description && <p
             style={{ color: theme.primaryColor, fontSize: "1rem", fontWeight: "400", ...textStyle }}
             children={description}
-        /> }
+        />}
     </pre>
+
+export default SinifMessageComponent;

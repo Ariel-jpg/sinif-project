@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { userActions } from '../../User/user.actions';
 import HomeScreenResponsive from '../Components/HomeScreenResponsive';
 import { homeActions } from '../home.actions';
 
@@ -8,7 +7,7 @@ const mapStateToProps = (state) => ({
     lessons: state.homeReducer.lessons,
     questionId: state.homeReducer.questionId,
     messages: state.homeReducer.messages,
-    totalLength: state.homeReducer.totalQuestionsLength
+    totalQuestionsLength: state.homeReducer.totalQuestionsLength,
 });
 
 const mapDispatchToProps = dispatch => ({

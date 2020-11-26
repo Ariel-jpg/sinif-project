@@ -6,7 +6,7 @@ import Themes from '../../Constants/Themes';
 import { fieldValidation, toastError } from '../../utils/functions';
 import "./Styles/RegistryScreenStyle.css";
 
-export default (props) => {
+const RegistryScreen = (props) => {
     const [dni, setDni] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -83,3 +83,5 @@ export default (props) => {
         />
     </section>
 }
+
+export default RegistryScreen;

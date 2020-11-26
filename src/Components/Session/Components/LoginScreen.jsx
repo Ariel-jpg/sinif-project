@@ -6,7 +6,7 @@ import { fieldValidation, toastError } from '../../utils/functions';
 import "./Styles/LoginScreenStyle.css";
 import ActivityWrapper from '../../Common/Components/SInifLoader';
 
-export default (props) => {
+const LoginScreen (props) => {
     const [dniUser, setDniUser] = useState("");
     const [passwordUser, setPasswordUser] = useState("");
 
@@ -64,4 +64,6 @@ export default (props) => {
                 textColor={Themes[props.colorPage].primaryColor} fontWeight="300" title="REGISTRARSE" />
         </aside>
     </section>
-}
+};
+
+export default LoginScreen;

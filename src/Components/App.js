@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import SessionWrapper from './Session/Components/SessionWrapperScreen';
-import HomeScreenWrapper from './Home/Containers/HomeScreenWrapper';
+import HomeScreenWrapper from './Home/Containers/HomeWrapper';
 
 const PrivateRoute = ({ component, userLogged, props }) =>
   userLogged ? <Route {...props} children={component} /> : <Redirect to="/" />
@@ -25,7 +25,7 @@ class App extends React.Component {
             exact path="/home" // Principal page
             component={<HomeScreenWrapper />}
           />
-
+         
           <Route
             exact path="/unauthorized"
             children={<p>Sin autorización</p>}

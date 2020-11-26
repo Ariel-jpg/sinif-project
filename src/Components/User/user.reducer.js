@@ -1,5 +1,4 @@
 import { CHANGE_COLOR_THEME } from "./user.actions";
-import { getLocalStorage } from "../utils/functions";
 import { LOGIN_RESPONSE, LOGOUT } from "../Session/session.actions";
 
 const initialState = {
@@ -7,7 +6,7 @@ const initialState = {
     user: {
         _id: "44097455",
         userSettings: {
-            colorTheme: "secondTheme"
+            colorTheme: "firstTheme"
         }
     }
 }

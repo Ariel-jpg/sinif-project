@@ -70,7 +70,7 @@ export const alternativeSecondTheme = {
     colorThemeName: "secondTheme"
 }
 
-export default {
+const Themes = {
     firstTheme,
     secondTheme,
     thirdTheme,
@@ -80,3 +80,5 @@ export default {
     lightTheme,
     darkTheme
 }
+
+export default Themes;

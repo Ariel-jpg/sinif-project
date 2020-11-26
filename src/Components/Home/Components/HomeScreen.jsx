@@ -3,10 +3,10 @@ import { AiOutlineSetting } from 'react-icons/ai';
 import { BiBookBookmark } from 'react-icons/bi';
 import { BsFillTriangleFill, BsQuestion } from 'react-icons/bs';
 import { RiPlayListAddFill } from 'react-icons/ri';
-import Dodecahedron from '../../Common/Animations/Dodecahedron';
 import CommentSection from "../Containers/CommentSection";
-import { AddClassButton, LoadMessages, SinifClassComponent, SinifClassMessageComponent } from '../../Common/Components/HomeComponents';
+import { AddClassButton, SinifClassComponent } from '../../Common/Components/HomeComponents';
 import './Styles/HomeScreenStyle.css';
+import QuestionRenderComponent from '../../Common/Components/QuestionsRenderView';
 
 const HomeScreen = (props) => <>
     <nav>
@@ -51,38 +51,15 @@ const HomeScreen = (props) => <>
                 </dl>
                 <button type="submit"> <BsFillTriangleFill /> </button>
             </form>
-            {
-                props.classCode && props.messages ?
-                    props.messages[0] ? props.messages.map((message, i) => {
-                        if (i === props.messages.length - 1 && props.messages.length < props.totalLength) return <>
-                            <SinifClassMessageComponent
-                                style={message._id === props.questionId ? {
-                                    backgroundColor: "var(--tertiary-color)",
-                                    boxShadow: "0 0 15px 1px var(--secondary-color)"
-                                } : {}}
-                                onClick={() => props.changeQuestion(message._id)} message={message} />
-                            <LoadMessages
-                                onClick={props.handleLoadMessages}
-                                label="Cargar más preguntas"
-                            />
-                        </>
-
-                        return <SinifClassMessageComponent
-                            style={message._id === props.questionId ? {
-                                backgroundColor: "var(--tertiary-color)",
-                                boxShadow: "0 0 15px 1px var(--secondary-color)"
-                            } : {}}
-                            message={message} onClick={() => props.changeQuestion(message._id)} />
-                    })
-                        : <aside>
-                            <span>
-                                Vaya, parece que nadie preguntó aún. <br />
-                                Te dejamos esta animación hasta que alguien tenga alguna duda.
-                            </span>
-                            <Dodecahedron />
-                        </aside>
-                    : <aside> <span> Únete a una clase para continuar </span> </aside>
-            }
+            <QuestionRenderComponent
+                totalLength={props.totalQuestionsLength}
+                handleChangeQuestion={props.changeQuestion}
+                handleLoadMessages={props.handleLoadMessages}
+                questionId={props.questionId}
+                messages={props.messages}
+                classCode={props.classCode}
+                renderAnimation
+            />
         </section>
         <CommentSection />
         <section style={{ flex: .35 }}>Others</section>

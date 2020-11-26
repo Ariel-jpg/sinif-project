@@ -3,8 +3,10 @@ import { sessionActions } from "../Session/session.actions";
 import { userActions } from "../User/user.actions";
 import { homeActions } from "../Home/home.actions";
 
-export default {
+const rootActions = {
     sessionActions,
     userActions,
     homeActions
-}
+};
+
+export default rootActions;

@@ -1,15 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { AddClassButton, LoadMessages, SinifClassComponent, SinifClassMessageComponent } from "../../Common/Components/HomeComponents"
 import Media from "react-media";
 
-import { BiBookBookmark } from 'react-icons/bi';
-import { AiOutlineSetting } from 'react-icons/ai';
-import { RiPlayListAddFill } from 'react-icons/ri';
-import { BsQuestion, BsFillTriangleFill } from 'react-icons/bs';
-
 import { SinifDialogComponent } from '../../Common/Components/SinifDialogComponent';
-import CommentsSection from '../Containers/CommentSection';
-import Dodecahedron from "../../Common/Animations/Dodecahedron";
 
 import Themes from "../../Constants/Themes";
 

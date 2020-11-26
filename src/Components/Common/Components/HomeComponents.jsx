@@ -1,8 +1,7 @@
-import React from 'react'
-import { RiPlayListAddFill } from 'react-icons/ri'
+import React from 'react';
+import { RiPlayListAddFill } from 'react-icons/ri';
 
-export const SinifClassComponent = ({ _class, onClick, currentClassCode }) => {
-    return <button
+export const SinifClassComponent = ({ _class, onClick, currentClassCode }) => <button
         key={_class._id}
         className="SinifClassComponentStyle"
         disabled={_class._id === currentClassCode}
@@ -10,10 +9,8 @@ export const SinifClassComponent = ({ _class, onClick, currentClassCode }) => {
         onClick={onClick}
         children={_class.className.toUpperCase()}
     />
-}
 
-export const SinifClassMessageComponent = ({ message, onClick, style }) => {
-    return <div
+export const SinifClassMessageComponent = ({ message, onClick, style }) => <div
         key={message._id}
         style={style}
         tabIndex="0"
@@ -24,16 +21,12 @@ export const SinifClassMessageComponent = ({ message, onClick, style }) => {
         <h4 style={{ marginBottom: message.description && 5 }}>{message.title}</h4>
         {message.description && <p>{message.description}</p>}
     </div>
-}
 
-export const SinifCommentMessageComponent = ({ comment, style }) => {
-    return <div
-        style={style}
-        className="SinifClassMessageComponentStyle Comment"
-    >
-        {<p>{comment}</p>}
-    </div>
-}
+export const SinifCommentMessageComponent = ({ comment, style }) => <div
+    style={style}
+    className="SinifClassMessageComponentStyle Comment"
+    children={<p>{comment}</p>}
+/>
 
 export const AddClassButton = ({ onClick }) => <button className="HomeButtonStyle" onClick={onClick}>
     <RiPlayListAddFill />
