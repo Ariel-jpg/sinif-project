@@ -6,7 +6,6 @@ import { toastError } from "../utils/functions";
 const userMiddleware = ({ getState, dispatch }) => next => action => {
     next(action);
 
-
     switch (action.type) {
         case JOIN_CLASS_REQUEST:
             !(getState().homeReducer.lessons.find(_class => _class._id === action.classCode)) ? userServices.joinClass({

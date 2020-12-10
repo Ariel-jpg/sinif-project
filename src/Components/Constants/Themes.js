@@ -7,9 +7,9 @@ export const firstTheme = {
 }
 
 export const secondTheme = {
-    primaryColor: "#F0A49E",
-    secondaryColor: "#6E2C27",
-    tertiaryColor: "#401A17",
+    primaryColor: "#FF6458",
+    secondaryColor: "#3C0400",
+    tertiaryColor: "#1D0200",
 
     colorThemeName: "secondTheme"
 }
@@ -46,28 +46,20 @@ export const sixthTheme = {
     colorThemeName: "sixthTheme"
 }
 
+export const lightTheme = {
+    primaryColor: "#000",
+    secondaryColor: "#fff",
+    tertiaryColor: "#ccc",
+
+    colorThemeName: "lightTheme"
+}
+
 export const darkTheme = {
     primaryColor: "#FFFFFF",
     secondaryColor: "#414141",
     tertiaryColor: "#111111",
 
     colorThemeName: "darkTheme"
-}
-
-export const lightTheme = {
-    primaryColor: "#595656",
-    secondaryColor: "#fff",
-    tertiaryColor: "#000",
-
-    colorThemeName: "lightTheme"
-}
-
-export const alternativeSecondTheme = {
-    primaryColor: "#FF6458",
-    secondaryColor: "#3C0400",
-    tertiaryColor: "#1D0200",
-
-    colorThemeName: "secondTheme"
 }
 
 const Themes = {
@@ -79,6 +71,17 @@ const Themes = {
     sixthTheme,
     lightTheme,
     darkTheme
-}
+};
+
+export const ThemesArray = [
+    firstTheme,
+    secondTheme,
+    thirdTheme,
+    fourthTheme,
+    fifthTheme,
+    sixthTheme,
+    lightTheme,
+    darkTheme
+];
 
 export default Themes;

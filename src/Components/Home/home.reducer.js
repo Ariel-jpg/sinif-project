@@ -36,6 +36,7 @@ const homeReducer = (state = initialState, action) => {
             totalCommentsLength: action.body.totalLength
         }
 
+        
         case LOGOUT: return initialState;
         default:
             return state;

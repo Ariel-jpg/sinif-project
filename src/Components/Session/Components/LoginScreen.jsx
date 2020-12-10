@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+
 import { SinifButton, SinifTitle } from '../../Common/Components/SinifTextTypes';
-import Themes from '../../Constants/Themes';
 import { FaFingerprint } from "react-icons/fa";
+
 import { fieldValidation, toastError } from '../../utils/functions';
-import "./Styles/LoginScreenStyle.css";
+import Themes from '../../Constants/Themes';
+
 import ActivityWrapper from '../../Common/Components/SInifLoader';
 
-const LoginScreen (props) => {
+import "./Styles/LoginScreenStyle.css";
+
+const LoginScreen =  (props) => {
     const [dniUser, setDniUser] = useState("");
     const [passwordUser, setPasswordUser] = useState("");
 

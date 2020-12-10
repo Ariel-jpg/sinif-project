@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+
 import Media from "react-media";
 
 import { SinifDialogComponent } from '../../Common/Components/SinifDialogComponent';
@@ -7,10 +8,12 @@ import Themes from "../../Constants/Themes";
 
 import { SocketListener, toastError } from "../../utils/functions";
 
-import "./Styles/HomeScreenWrapperStyle.css";
 import { GET_MESSAGES, NEW_CLASS_MESSAGE_EVENT } from '../../Constants/Constants';
+
 import Home from '../Containers/Home';
 import HomeResponsiveComponent from '../Containers/HomeResponsive';
+
+import "./Styles/HomeScreenWrapperStyle.css";
 
 const HomeScreenWrapper = (props) => {
     const cssVars = {
@@ -24,6 +27,7 @@ const HomeScreenWrapper = (props) => {
     const [joinClassCode, setJoinClassCode] = useState("");
     const [joinClassDialog, setJoinClassDialog] = useState(false);
     const socketClassMessagesRef = useRef();
+    const socketCommentsRef = useRef();
 
     SocketListener(props.classCode,
         NEW_CLASS_MESSAGE_EVENT,
@@ -35,11 +39,9 @@ const HomeScreenWrapper = (props) => {
     );
 
     const onSend = (e, _title, _description) => {
-        e.preventDefault();
+        e && e.preventDefault();
 
         if (_title.trim() !== "") {
-            toastError("Se envío");
-
             socketClassMessagesRef.current.emit(NEW_CLASS_MESSAGE_EVENT, {
                 body: {
                     classCode: props.classCode,
@@ -63,6 +65,7 @@ const HomeScreenWrapper = (props) => {
             setTitle={setTitle}
             title={title}
             description={description}
+            socketCommentsRef={socketCommentsRef}
         />}
         />
 
@@ -74,6 +77,7 @@ const HomeScreenWrapper = (props) => {
             setTitle={setTitle}
             title={title}
             description={description}
+            socketCommentsRef={socketCommentsRef}
         />}
         />
 

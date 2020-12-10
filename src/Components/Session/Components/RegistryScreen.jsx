@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Sentry } from 'react-activity';
+
 import Media from 'react-media';
+import { Sentry } from 'react-activity';
 import { SinifButton, SinifTitle } from '../../Common/Components/SinifTextTypes';
+
 import Themes from '../../Constants/Themes';
 import { fieldValidation, toastError } from '../../utils/functions';
+
 import "./Styles/RegistryScreenStyle.css";
 
 const RegistryScreen = (props) => {

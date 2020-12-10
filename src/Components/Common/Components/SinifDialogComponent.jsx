@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -15,7 +16,7 @@ export const SinifDialogComponent = ({
     handleConfirm,
     handleChange,
     confirmButton = "Confimar",
-    cancelButton = "Cancelar",
+    cancelButton = "Cancelar"
 }) => <Dialog open={open} onClose={handleClose}>
         <DialogContent>
             <DialogTitle>{title}</DialogTitle>
@@ -28,6 +29,28 @@ export const SinifDialogComponent = ({
                 type="filled"
                 fullWidth
             />
+        </DialogContent>
+        <DialogActions>
+            <Button onClick={() => { handleClose(); handleConfirm() }} color="primary" children={confirmButton} />
+            <Button onClick={handleClose} color="primary" children={cancelButton} />
+        </DialogActions>
+    </Dialog>
+
+
+export const SinifSendDialogComponent = ({
+    title,
+    content,
+    open,
+    handleClose,
+    handleConfirm,
+    confirmButton = "Confimar",
+    cancelButton = "Cancelar",
+    component: Component
+}) => <Dialog open={open} onClose={handleClose}>
+        <DialogContent>
+            <DialogTitle>{title}</DialogTitle>
+            {content && <DialogContentText children={content} />}
+            {Component}
         </DialogContent>
         <DialogActions>
             <Button onClick={() => { handleClose(); handleConfirm() }} color="primary" children={confirmButton} />

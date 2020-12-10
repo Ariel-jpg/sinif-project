@@ -60,7 +60,6 @@
 .HomeScreenWrapperStyle > nav > article {
   position: relative;
   display: flex;
-  flex-direction: column;
   flex: 0.2;
   justify-content: space-around;
   width: 100%;
@@ -133,7 +132,7 @@ button.HomeButtonStyle:focus {
 
 .HomeScreenWrapperStyle > section > section.ClassMessagesSectionStyle {
   position: relative;
-  flex: 0.4;
+  flex: 1;
   display: inherit;
   flex-flow: column-reverse;
   background-color: transparent;
@@ -281,19 +280,7 @@ div.SinifClassMessageComponentStyle:focus {
   border-color: white;
 }
 
-@media (min-width: 800px) and (max-width: 1299px) {
-  .HomeScreenWrapperStyle > section > section:last-child {
-    visibility: hidden;
-    flex: none;
-    position: absolute;
-  }
-
-  .HomeScreenWrapperStyle > section > section.ClassMessagesSectionStyle {
-    flex: 1;
-  }
-
-  .HomeScreenWrapperStyle > section > section.CommentsSectionScreenStyle {
-    flex: 1;
-    margin-right: 3%;
-  }
+.HomeScreenWrapperStyle > section > section.CommentsSectionScreenStyle {
+  flex: 1;
+  margin-right: 3%;
 }

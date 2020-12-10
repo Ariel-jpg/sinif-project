@@ -32,6 +32,7 @@ const sessionReducer = (state = initialState, action) => {
         case REGISTER_RESPONSE_ERROR:
             return { ...state, ui: { ...state.ui, registryError: true, registryPending: false } };
 
+
         case LOGOUT: return initialState;
         default: return state;
     }

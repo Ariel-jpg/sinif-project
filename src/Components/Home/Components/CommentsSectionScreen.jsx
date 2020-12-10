@@ -1,7 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+
 import { BsFillTriangleFill } from 'react-icons/bs';
+
 import { LoadMessages, SinifCommentMessageComponent } from '../../Common/Components/HomeComponents';
+
 import { SocketListener, toastError } from '../../utils/functions';
+
 import "./Styles/CommentsSectionScreenStyle.css";
 
 const GET_COMMENTS = "GET_COMMENTS";
@@ -9,7 +13,6 @@ const NEW_COMMENT_EVENT = "NEW_COMMENT_EVENT";
 
 const CommentsSectionScreen = (props) => {
     const [comment, setComment] = useState("");
-    const socketCommentsRef = useRef();
 
     SocketListener(props.questionId,
         NEW_COMMENT_EVENT,
@@ -17,14 +20,14 @@ const CommentsSectionScreen = (props) => {
         { questionId: props.questionId },
         props.loadAllComments,
         props.loadNewComment,
-        socketCommentsRef
+        props.socketCommentsRef
     );
 
     const onSendComment = (e, _comment) => {
         e.preventDefault();
 
         if (_comment.trim() !== "") {
-            socketCommentsRef.current.emit(NEW_COMMENT_EVENT, {
+            props.socketCommentsRef.current.emit(NEW_COMMENT_EVENT, {
                 body: {
                     message: _comment,
                     questionId: props.questionId
@@ -39,7 +42,7 @@ const CommentsSectionScreen = (props) => {
             if (i === props.comments.length - 1 && props.comments.length < props.totalLength) return <>
                 <SinifCommentMessageComponent comment={message} />
                 <LoadMessages
-                    onClick={() => socketCommentsRef.current.emit(GET_COMMENTS, { body: { length: props.comments.length } })}
+                    onClick={() => props.socketCommentsRef.current.emit(GET_COMMENTS, { body: { length: props.comments.length } })}
                     label="Cargar más comentarios" />
             </>
 
@@ -66,7 +69,7 @@ const CommentsSectionScreen = (props) => {
                                 if (i === props.comments.length - 1 && props.comments.length < props.totalLength) return <>
                                     <SinifCommentMessageComponent comment={message} />
                                     <LoadMessages
-                                        onClick={() => socketCommentsRef.current.emit(GET_COMMENTS, { body: { length: props.comments.length } })}
+                                        onClick={() => props.socketCommentsRef.current.emit(GET_COMMENTS, { body: { length: props.comments.length } })}
                                         label="Cargar más comentarios" />
                                 </>
 
@@ -74,8 +77,8 @@ const CommentsSectionScreen = (props) => {
                             })
                                 : <aside>
                                     Esta pregunta aún no tiene respuesta. <br />
-                        ¿Vos las tenés? ¡Compartila cuanto antes!
-                    </aside>
+                                    ¿Vos las tenés? ¡Compartila cuanto antes!
+                            </aside>
                             : <aside> No hay nada por aquí. </aside>
                     }
                 </article>

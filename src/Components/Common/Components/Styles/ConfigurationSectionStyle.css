@@ -1,0 +1,46 @@
+article.ConfigurationSectionStyle {
+  background-color: var(--secondary-color);
+  width: 90%;
+  height: fit-content;
+  border-radius: 20px;
+  color: var(--primary-color);
+  padding-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-weight: lighter;
+}
+
+article.ConfigurationSectionStyle > div.themeComponentStyle {
+  width: 80%;
+  align-self: center;
+  padding: 1.5%;
+  justify-content: center;
+  margin: 1.5%;
+  display: flex;
+  cursor: pointer;
+}
+
+article.ConfigurationSectionStyle > h2 {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: var(--tertiary-color);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  border-bottom: solid 1px var(--primary-color);
+  border-radius: 20px 20px 0 0;
+  font-weight: lighter;
+}
+
+article.ConfigurationSectionStyle > div.themeComponentStyle > div {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-left: 10%;
+  box-shadow: 0 0 10px 1px var(--tertiary-color);
+}
+
+article.ConfigurationSectionStyle > div.themeComponentStyle > h3 {
+  font-size: 1rem;
+  font-weight: lighter;
+}

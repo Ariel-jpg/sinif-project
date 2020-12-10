@@ -195,7 +195,8 @@
   padding: 2.5%;
   border-radius: 15px;
   font-size: 1.1rem;
-  width: 80%;
+  width: 90%;
+  word-break: break-all;
 }
 .MainResponsiveView
   > aside

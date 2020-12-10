@@ -1,4 +1,5 @@
 import Dodecahedron from "../Animations/Dodecahedron";
+
 import { LoadMessages, SinifClassMessageComponent } from "./HomeComponents";
 
 const QuestionRenderComponent = ({ messages,
@@ -12,6 +13,7 @@ const QuestionRenderComponent = ({ messages,
         messages[0] ? messages.map((message, i) => {
             if (i === messages.length - 1 && messages.length < totalLength) return <>
                 <SinifClassMessageComponent
+                    key={message._id}
                     style={message._id === questionId ? {
                         backgroundColor: "var(--tertiary-color)",
                         boxShadow: "0 0 15px 1px var(--secondary-color)"
@@ -24,6 +26,7 @@ const QuestionRenderComponent = ({ messages,
             </>
 
             return <SinifClassMessageComponent
+                key={message._id}
                 style={message._id === questionId ? {
                     backgroundColor: "var(--tertiary-color)",
                     boxShadow: "0 0 15px 1px var(--secondary-color)"

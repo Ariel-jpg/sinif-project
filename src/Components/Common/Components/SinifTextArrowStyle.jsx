@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { RiArrowDownSLine } from 'react-icons/ri';
+
 import "./Styles/SinifTextArrowStyle.css";
 
 export const SinifTextArrowLeft = ({ title, iconType, iconName, style }) => <pre style={{

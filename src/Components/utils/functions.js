@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import io from "socket.io-client";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../../settings.json";
 
 export const setLocalStorage = (itemKey, itemValue) => localStorage.setItem(itemKey, itemValue);
 export const getLocalStorage = (itemKey) => localStorage.getItem(itemKey);
@@ -42,14 +43,10 @@ export const SocketListener = (
     socketComponentRef
 ) => {
     useEffect(() => {
-        console.log("CAMBIÓ:")
-        socketComponentRef.current = io('http://192.168.0.11:302/', { query });
+        socketComponentRef.current = io(BASE_URL, { query });
 
         // Listener
-        socketComponentRef.current.on(onEvent, message => {
-            toastError("Se recibió: ", message);
-            loadNewData(message.body);
-        });
+        socketComponentRef.current.on(onEvent, message => loadNewData(message.body));
 
         socketComponentRef.current.emit(getDataEvent, { body: { length: 0 } });
         socketComponentRef.current.on(getDataEvent, data => loadAllDataMessages(data));
